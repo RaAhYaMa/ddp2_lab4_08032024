@@ -1,29 +1,43 @@
 public class Employee {
-    // TODO: Lengkapi visibility modifier attribute dan methods di bawah
     private int employeeID;
     private String name;
     private int yearsOfWork;
     private double baseSalary;
     private double finalSalary;
 
+    /**
+     * Konstruktor default untuk objek Employee.
+     */
     public Employee() {
         
     }
 
-    
-    // TODO: Tambahkan Constructor serta Setter dan Getter
+    /**
+     * Konstruktor untuk membuat objek Employee dengan parameter tertentu.
+     *
+     * @param name       Nama karyawan.
+     * @param yearsOfWork Tahun bekerja.
+     * @param baseSalary Gaji dasar.
+     */
     public Employee(String name, int yearsOfWork, double baseSalary) {
+
         this.name = name;
         this.yearsOfWork = yearsOfWork;
         this.baseSalary = baseSalary;
+
     }
-    
+
+    /**
+     * Metode untuk menghitung gaji karyawan berdasarkan aturan tertentu.
+     *
+     * @return Gaji akhir setelah perhitungan.
+     */
     public double CalculateSalary() {
-        // TODO implementasikan method CalculateSalary
+
         double result = baseSalary;
 
         if (5 < yearsOfWork && yearsOfWork <= 10) {
-            result *= 1.5;
+            result *= 1.5; 
         }
 
         if (yearsOfWork > 10) {
@@ -31,14 +45,17 @@ public class Employee {
         }
 
         return result;
+
     }
     
     @Override
     public String toString() {
-        // TODO: implementasikan method toString yang merupakan method override dari class Object
         return "";
     }
 
+    // Getter dan setter untuk atribut karyawan
+
+    // ...
     public int getEmployeeID() {
         return employeeID;
     }

@@ -1,20 +1,33 @@
-// TODO: Class Accountant adalah subclass dari Employee
 public class Accountant extends Employee {
-    // TODO: Lengkapi visibility modifier attribute dan methods di bawah
+
     private int totalHoursWorked;
     private double hourlyRate;
 
-    
-    // TODO: Tambahkan Constructor serta Setter dan Getter
+    /**
+     * Konstruktor untuk membuat objek Accountant dengan parameter tertentu.
+     *
+     * @param name         Nama akuntan.
+     * @param yearsOfWork  Tahun bekerja akuntan.
+     * @param baseSalary   Gaji dasar akuntan.
+     * @param hourlyRate   Tarif per jam akuntan.
+     */
     public Accountant(String name, int yearsOfWork, double baseSalary, double hourlyRate) {
+
         setName(name);
         setYearsOfWork(yearsOfWork);
         setBaseSalary(baseSalary);
         this.hourlyRate = hourlyRate;
+
     }
 
+    /**
+     * Metode untuk menghitung gaji akuntan berdasarkan total jam kerja dan aturan gaji karyawan.
+     *
+     * @return Gaji akhir setelah perhitungan.
+     */
+    @Override
     public double CalculateSalary() {
-        // TODO implementasikan method CalculateSalary yang merupakan method override dari class Employee
+
         double result = totalHoursWorked * hourlyRate;
 
         if (5 < getYearsOfWork() && getYearsOfWork() <= 10) {
@@ -30,14 +43,32 @@ public class Accountant extends Employee {
         setFinalSalary(result);
 
         return result;
+
     }
     
+    /**
+     * Metode untuk representasi string dari objek Accountant.
+     *
+     * @return String yang menyatakan gaji bulan ini.
+     */
     @Override
     public String toString() {
-        // TODO: implementasikan method toString yang merupakan method override dari class Object
-        return "Gaji " + getName() + " bulan ini adalah " + getFinalSalary() + " IDR!";
+
+        String out = "";
+        
+        out += "Gaji ";
+        out += getName();
+        out += " bulan ini adalah ";
+        out += String.format("%.1f", getFinalSalary());
+        out += " IDR!\n";
+
+        return out;
+
     }
 
+    // Getter dan setter untuk atribut Accountant
+
+    // ...
     public int getTotalHoursWorked() {
         return totalHoursWorked;
     }
@@ -53,4 +84,5 @@ public class Accountant extends Employee {
     public void setHourlyRate(double hourlyRate) {
         this.hourlyRate = hourlyRate;
     }
+
 }

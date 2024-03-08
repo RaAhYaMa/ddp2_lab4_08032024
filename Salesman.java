@@ -1,21 +1,35 @@
-// TODO: Class Salesman adalah subclass dari Employee
 public class Salesman extends Employee {
-    // TODO: Lengkapi visibility modifier attribute dan methods di bawah
+
     private double totalSales;
     private double commissionFee;
 
-    
-    // TODO: Tambahkan Constructor serta Setter dan Getter
+    /**
+     * Konstruktor untuk membuat objek Salesman dengan parameter tertentu.
+     *
+     * @param name          Nama salesman.
+     * @param yearsOfWork   Tahun bekerja salesman.
+     * @param baseSalary    Gaji dasar salesman.
+     * @param totalSales    Total penjualan yang dicapai oleh salesman.
+     * @param commissionFee Persentase komisi per penjualan.
+     */
     public Salesman(String name, int yearsOfWork, double baseSalary, int totalSales, double commissionFee) {
+
         setName(name);
         setYearsOfWork(yearsOfWork);
         setBaseSalary(baseSalary);
         this.totalSales = totalSales;
         this.commissionFee = commissionFee;
+
     }
-    
+   
+    /**
+     * Metode untuk menghitung gaji salesman berdasarkan total penjualan dan aturan gaji karyawan.
+     *
+     * @return Gaji akhir setelah perhitungan.
+     */
+    @Override
     public double CalculateSalary() {
-        // TODO implementasikan method CalculateSalary yang merupakan method override dari class Employee
+
         double result = totalSales * commissionFee;
 
         if (5 < getYearsOfWork() && getYearsOfWork() <= 10) {
@@ -31,14 +45,32 @@ public class Salesman extends Employee {
         setFinalSalary(result);
 
         return result;
+
     }
 
+    /**
+     * Metode untuk representasi string dari objek Salesman.
+     *
+     * @return String yang menyatakan gaji bulan ini.
+     */
     @Override
     public String toString() {
-        // TODO: implementasikan method toString yang merupakan method override dari class Object
-        return "Gaji " + getName() + " bulan ini adalah " + getFinalSalary() + " IDR!";
+
+        String out = "";
+
+        out += "Gaji ";
+        out += getName();
+        out += " bulan ini adalah ";
+        out += String.format("%.1f", getFinalSalary());
+        out += " IDR!\n";
+
+        return out;
+
     }
 
+    // Getter dan setter untuk atribut Salesman
+
+    // ...
     public double getTotalSales() {
         return totalSales;
     }
@@ -54,4 +86,5 @@ public class Salesman extends Employee {
     public void setCommissionFee(double commissionFee) {
         this.commissionFee = commissionFee;
     }
+
 }

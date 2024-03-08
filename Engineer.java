@@ -17,9 +17,11 @@ public class Engineer extends Employee {
     public double CalculateSalary() {
         // TODO implementasikan method CalculateSalary yang merupakan method override dari class Employee
         double result = totalProject * projectFee;
+
         if (5 < getYearsOfWork() && getYearsOfWork() <= 10) {
             result *= 1.5;
         }
+        
         if (getYearsOfWork() > 10) {
             result *= 2;
         }
@@ -34,7 +36,7 @@ public class Engineer extends Employee {
     @Override
     public String toString() {
         // TODO: implementasikan method toString yang merupakan method override dari class Object
-        return "Employee bernama " + getName() + " dengan role Engineer berhasil dipilih!";
+        return "Gaji " + getName() + " bulan ini adalah " + getFinalSalary() + " IDR!";
     }
 
     public int getTotalProject() {

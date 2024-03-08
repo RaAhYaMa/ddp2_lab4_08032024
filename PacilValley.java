@@ -44,13 +44,46 @@ public class PacilValley {
             if (role.equalsIgnoreCase("Engineer")) {
                 // TODO: Meminta input dan instansiasi employee
 
+                System.out.print("Project Fee (IDR): ");
+                double projectFee = Double.parseDouble(in.nextLine());
+
+                Employee engineer = new Engineer(nama, pengalamanKerja, baseSalary, 0, projectFee);
+
+                engineer.setEmployeeID(employees.size() + 1);
+
+                employees.add(engineer);
+
+                System.out.println("\nEngineer dengan ID " + engineer.getEmployeeID() + " bernama " + engineer.getName() + " berhasil dihire!");
+
                 break;
             } else if (role.equalsIgnoreCase("Salesman")) {
                 // TODO: Meminta input dan instansiasi employee
 
+                System.out.print("Commission Fee (%): ");
+                double commissionFee = Double.parseDouble(in.nextLine());
+
+                Employee salesman = new Salesman(nama, pengalamanKerja, baseSalary, 0, commissionFee);
+
+                salesman.setEmployeeID(employees.size() + 1);
+
+                employees.add(salesman);
+
+                System.out.println("\nSalesman dengan ID " + salesman.getEmployeeID() + " bernama " + salesman.getName() + " berhasil dihire!");
+
                 break;
             } else if (role.equalsIgnoreCase("Accountant")) {
                 // TODO: Meminta input dan instansiasi employee
+
+                System.out.print("Hourly Rate (IDR): ");
+                double hourlyRate = Double.parseDouble(in.nextLine());
+
+                Employee accountant = new Accountant(nama, pengalamanKerja, baseSalary, hourlyRate);
+
+                accountant.setEmployeeID(employees.size() + 1);
+
+                employees.add(accountant);
+
+                System.out.println("\nAccountant dengan ID " + accountant.getEmployeeID() + " bernama " + accountant.getName() + " berhasil dihire!");
 
                 break;
             } else {
@@ -68,6 +101,44 @@ public class PacilValley {
         }
         // TODO: Meminta ID dan validasi ID
         // TODO: Meminta input data dan hitung gaji berdasarkan tipe employee
+
+        Employee employee = null;
+        String role = "";
+        while (true) {
+            
+            System.out.print("Masukkan employee ID: ");
+            int id = Integer.parseInt(in.nextLine());
+    
+    
+            for (Employee e : employees) {
+                if (e.getEmployeeID() == id) {
+                    employee = e;
+                    role = e.getClass().getSimpleName();
+                    System.out.println("Employee bernama " + e.getName() + " dengan role " + role + " berhasil dipilih!");
+                    break;
+                }
+            }
+    
+            if (employee == null) {
+                System.out.println("Employee dengan ID " + id + " tidak ditemukan! Silahkan masukkan ID yang sesuai.");
+                continue;
+            }
+
+            break;
+
+        }
+
+        if (role.equals("Engineer")) {
+            
+        }
+
+        if (role.equals("Salesman")) {
+            
+        }
+
+        if (role.equals("Accountant")) {
+            
+        }
 
     }
 

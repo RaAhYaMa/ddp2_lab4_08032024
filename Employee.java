@@ -6,6 +6,10 @@ public class Employee {
     private double baseSalary;
     private double finalSalary;
 
+    public Employee() {
+        
+    }
+
     
     // TODO: Tambahkan Constructor serta Setter dan Getter
     public Employee(String name, int yearsOfWork, double baseSalary) {
@@ -32,7 +36,7 @@ public class Employee {
     @Override
     public String toString() {
         // TODO: implementasikan method toString yang merupakan method override dari class Object
-        return "Gaji " + name + " bulan ini adalah " + finalSalary + " IDR!";
+        return "";
     }
 
     public int getEmployeeID() {

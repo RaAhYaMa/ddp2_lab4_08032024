@@ -7,18 +7,35 @@ public class Accountant extends Employee {
     
     // TODO: Tambahkan Constructor serta Setter dan Getter
     public Accountant(String name, int yearsOfWork, double baseSalary, double hourlyRate) {
-        
+        setName(name);
+        setYearsOfWork(yearsOfWork);
+        setBaseSalary(baseSalary);
+        this.hourlyRate = hourlyRate;
     }
 
     public double CalculateSalary() {
         // TODO implementasikan method CalculateSalary yang merupakan method override dari class Employee
-        return -1;
+        double result = totalHoursWorked * hourlyRate;
+
+        if (5 < getYearsOfWork() && getYearsOfWork() <= 10) {
+            result *= 1.5;
+        }
+
+        if (getYearsOfWork() > 10) {
+            result *= 2;
+        }
+
+        result += super.CalculateSalary();
+
+        setFinalSalary(result);
+
+        return result;
     }
     
     @Override
     public String toString() {
         // TODO: implementasikan method toString yang merupakan method override dari class Object
-        return "";
+        return "Gaji " + getName() + " bulan ini adalah " + getFinalSalary() + " IDR!";
     }
 
     public int getTotalHoursWorked() {
